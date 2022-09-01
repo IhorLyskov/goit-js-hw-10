@@ -1,0 +1,12 @@
+    <div class="country">
+      <div class="country__name-mb25 country__row-flex">
+        <img src="{{flags.svg}}" alt="Flag of country" width="30">
+        <span class="country__name country__name-ml8">
+          {{name.common}}
+        </span>
+      </div>
+      <p><span class="country__header">Capital:</span>{{#each capital}}{{#if @index}}, {{/if}}{{.}}{{/each}}</p>
+      <p><span class="country__header">Population:</span>{{population}}</p>
+      <p><span class="country__header">Languages:</span>{{#each languages}}{{#if @index}}, {{/if}}{{.}}{{/each}}</p>
+    </div>
+

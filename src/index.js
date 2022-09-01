@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { markupOneCountry, makeupSomeCountries } from './markup';
+import { markupOneCountry, markupSomeCountries } from './markup';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -26,11 +26,11 @@ function onSearchBoxInput(e) {
 
   const name = e.target.value.trim();
   if (name.length) {
-    fetchCountries(name).then(outputCountries);
+    fetchCountries(name).then(renderCountries);
   }
 }
 
-function outputCountries(countries) {
+function renderCountries(countries) {
   if (countries === undefined) {
     Notiflix.Notify.failure('Oops, there is no country with that name');
   } else if (countries.length === 1) {
@@ -50,6 +50,6 @@ function renderOneCountry(country) {
 }
 
 function renderSomeCountries(countries) {
-  const markup = makeupSomeCountries(countries);
+  const markup = markupSomeCountries(countries);
   refs.countryList.innerHTML = markup;
 }
